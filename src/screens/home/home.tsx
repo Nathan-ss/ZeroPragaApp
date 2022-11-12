@@ -1,10 +1,15 @@
 import React from "react";
-import { View, Text } from "react-native";
+import { View, Text, ScrollView } from "react-native";
+import { Content } from "./components/content";
+import Globalstyles from "../../styles/globalStyles";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 export default function HomeScreen() {
   return (
-    <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-      <Text>Zero Praga começa aqui!</Text>
-    </View>
+    <SafeAreaView style={Globalstyles.global}>
+      <ScrollView>
+        <Content />
+      </ScrollView>
+    </SafeAreaView>
   );
 }
