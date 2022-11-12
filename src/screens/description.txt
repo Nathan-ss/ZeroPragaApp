@@ -1,0 +1,1 @@
+Telas do app, todas as telas devem estar nessa pasta, sendo organizadas pelos nomes das telas, aonde dentro dessas pastas devera ter pastas filhos, como components,api,ultils, assets etc.

@@ -4,22 +4,8 @@ import { Button } from "@react-native-material/core";
 import { StyleSheet, Text, View } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-
-function HomeScreen() {
-  return (
-    <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-      <Text>Zero Praga começa aqui!</Text>
-    </View>
-  );
-}
-
-function SettingsScreen() {
-  return (
-    <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-      <Text>Settings!</Text>
-    </View>
-  );
-}
+import SettingsScreen from "./src/screens/settings/settings";
+import HomeScreen from "./src/screens/home/home";
 
 const Tab = createBottomTabNavigator();
 
