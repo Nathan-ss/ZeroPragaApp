@@ -1,20 +1,67 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import React from "react";
+import { Ionicons } from "@expo/vector-icons";
+import { Button } from "@react-native-material/core";
+import { StyleSheet, Text, View } from "react-native";
+import { NavigationContainer } from "@react-navigation/native";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
-export default function App() {
+function HomeScreen() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
+    <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
+      <Text>Zero Praga começa aqui!</Text>
     </View>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+function SettingsScreen() {
+  return (
+    <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
+      <Text>Settings!</Text>
+    </View>
+  );
+}
+
+const Tab = createBottomTabNavigator();
+
+export default function App() {
+  return (
+    <NavigationContainer>
+      <Tab.Navigator
+        screenOptions={({ route }) => ({
+          tabBarIcon: ({ focused, color, size }) => {
+            if (route.name === "Home") {
+              return (
+                <Ionicons
+                  name={
+                    focused
+                      ? "ios-information-circle"
+                      : "ios-information-circle-outline"
+                  }
+                  size={size}
+                  color={color}
+                />
+              );
+            } else if (route.name === "Settings") {
+              return (
+                <Ionicons
+                  name={focused ? "ios-list-box" : "ios-list"}
+                  size={size}
+                  color={color}
+                />
+              );
+            }
+          },
+          tabBarInactiveTintColor: "gray",
+          tabBarActiveTintColor: "tomato",
+        })}
+      >
+        <Tab.Screen
+          name="Home"
+          component={HomeScreen}
+          options={{ tabBarBadge: 3 }}
+        />
+        <Tab.Screen name="Settings" component={SettingsScreen} />
+      </Tab.Navigator>
+    </NavigationContainer>
+  );
+}
